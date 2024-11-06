@@ -19,7 +19,18 @@ app.use(cors());
 app.use(express.json());
 
 // Use Swagger UI
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument, {
+    customCssUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui.css",
+    customJsUrl: [
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui-bundle.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui-standalone-preset.js",
+    ],
+  })
+);
 
 // Use authentication routes
 app.use("/auth", authRoutes);
