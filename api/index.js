@@ -10,6 +10,7 @@ const path = require("path");
 // const port = process.env.PORT || 3000;
 let port = parseInt(process.env.PORT, 10) || 3000;
 // Load Swagger YAML file
+// After adding path.join , the app delpoyed correctly in vercel but in local deployment everthing was working fine , still api doc is not opeening beacuse of console sagger error
 const swaggerDocument = YAML.load(path.join(__dirname, "../swagger.yaml"));
 
 // Enable CORS for all routes
@@ -19,18 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 // Use Swagger UI
-app.use(
-  "/api-docs",
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument, {
-    customCssUrl:
-      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui.css",
-    customJsUrl: [
-      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui-bundle.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.5.0/swagger-ui-standalone-preset.js",
-    ],
-  })
-);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Use authentication routes
 app.use("/auth", authRoutes);
