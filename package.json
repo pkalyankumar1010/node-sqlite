@@ -18,9 +18,5 @@
     "sqlite3": "^5.1.7",
     "swagger-ui-express": "^5.0.1",
     "yamljs": "^0.3.0"
-  },
-  "vercel-build": {
-    "src": "api/index.js",
-    "use": "@vercel/node"
   }
 }
