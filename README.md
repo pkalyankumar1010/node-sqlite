@@ -20,3 +20,13 @@ This project is a simple Node.js API for user authentication. It allows users to
 - Swagger UI for API documentation and testing
 
 ## Project Structure
+
+## Features
+
+- User Registration
+
+`npm install`
+
+- User Login
+- SQLite database for lightweight storage
+- Swagger UI for API documentation and testing
