@@ -53,5 +53,7 @@ function startServer(currentPort) {
   });
 }
 
+module.exports = app; // Export the app for Vercel serverless function
+
 // Start the server on the initial port (3000 or the one specified in .env)
 startServer(port);
