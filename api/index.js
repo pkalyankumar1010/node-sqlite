@@ -9,7 +9,7 @@ const cors = require("cors");
 // const port = process.env.PORT || 3000;
 let port = parseInt(process.env.PORT, 10) || 3000;
 // Load Swagger YAML file
-const swaggerDocument = YAML.load("../swagger.yaml");
+const swaggerDocument = YAML.load("./swagger.yaml");
 
 // Enable CORS for all routes
 app.use(cors());
