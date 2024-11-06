@@ -6,10 +6,11 @@ const db = require("../models/userModel"); // Import the database setup
 const swaggerUi = require("swagger-ui-express");
 const app = express();
 const cors = require("cors");
+const path = require("path");
 // const port = process.env.PORT || 3000;
 let port = parseInt(process.env.PORT, 10) || 3000;
 // Load Swagger YAML file
-const swaggerDocument = YAML.load("./swagger.yaml");
+const swaggerDocument = YAML.load(path.join(__dirname, "../swagger.yaml"));
 
 // Enable CORS for all routes
 app.use(cors());
