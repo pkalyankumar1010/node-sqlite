@@ -34,4 +34,26 @@ const loginUser = (req, res) => {
   );
 };
 
-module.exports = { registerUser, loginUser };
+// Get User
+const getUser = (req, res) => {
+  const { username, password } = req.body;
+  db.query(
+    `SELECT username FROM users `,
+    (err, rows) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      if (rows.length > 0) {
+        res.json({
+          message: "Users retrieved successfully",
+          users: rows, // Return the list of users
+        });
+      } else {
+        res.status(400).json({ message: "no users in database" });
+      }
+    }
+  );
+};
+
+
+module.exports = { registerUser, loginUser ,getUser};

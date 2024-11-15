@@ -64,3 +64,45 @@ paths:
                     example: "Login successful"
         "400":
           description: Invalid credentials
+ /auth/users:
+    get:
+      summary: Retrieve a list of users
+      responses:
+        "200":
+          description: Successfully retrieved users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Users retrieved successfully"
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        username:
+                          type: string
+                          example: "testuser"
+        "400":
+          description: No users in the database
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "No users in the database"
+        "500":
+          description: Database query failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Database error message"
