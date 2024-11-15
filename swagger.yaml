@@ -64,7 +64,7 @@ paths:
                     example: "Login successful"
         "400":
           description: Invalid credentials
- /auth/users:
+  /auth/users:
     get:
       summary: Retrieve a list of users
       responses:
