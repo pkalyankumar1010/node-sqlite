@@ -21,6 +21,7 @@ app.use(express.json());
 
 // Use Swagger UI
 const swaggerUiDistPath = require("swagger-ui-dist").getAbsoluteFSPath();
+app.use(express.static(path.join(__dirname, "../public")));
 app.use("/api-docs", express.static(swaggerUiDistPath)); // Serve Swagger UI assets
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
   explorer: true, // Optional: Enables the search bar in Swagger UI
