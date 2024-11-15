@@ -22,7 +22,9 @@ app.use(express.json());
 // Use Swagger UI
 const swaggerUiDistPath = require("swagger-ui-dist").getAbsoluteFSPath();
 app.use("/api-docs", express.static(swaggerUiDistPath)); // Serve Swagger UI assets
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use("/api-docs", swaggerUi.serve, (req, res) => {
+  res.send(swaggerUi.generateHTML(swaggerDocument)); // Generate and serve the Swagger UI documentation
+});
 
 // Use authentication routes
 app.use("/auth", authRoutes);
