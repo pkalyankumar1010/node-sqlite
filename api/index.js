@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 // Use Swagger UI
-const swaggerUiDistPath = require("swagger-ui-dist").getAbsoluteFSPath();
+const swaggerUiDistPath = require("swagger-ui-express").getAbsoluteFSPath();
 app.use("/api-docs", express.static(swaggerUiDistPath)); // Serve Swagger UI assets
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
