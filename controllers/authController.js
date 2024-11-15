@@ -36,7 +36,6 @@ const loginUser = (req, res) => {
 
 // Get User
 const getUser = (req, res) => {
-  const { username, password } = req.body;
   db.query(
     `SELECT username FROM users `,
     (err, rows) => {
