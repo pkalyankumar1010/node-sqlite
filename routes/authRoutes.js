@@ -9,6 +9,6 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 
 // Route to username
-router.post('/users', getUser);
+router.get('/users', getUser);
 
 module.exports = router;
