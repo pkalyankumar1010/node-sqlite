@@ -24,7 +24,7 @@ const swaggerUiDistPath = require("swagger-ui-dist").getAbsoluteFSPath();
 app.use("/api-docs", express.static(swaggerUiDistPath)); // Serve Swagger UI assets
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
   explorer: true, // Optional: Enables the search bar in Swagger UI
-  customCssUrl: "/swagger-ui/swagger-ui.css",
+  customCssUrl: "/api-docs/swagger-ui.css",
 }));
 
 // Use authentication routes
