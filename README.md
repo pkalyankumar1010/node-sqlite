@@ -30,3 +30,4 @@ This project is a simple Node.js API for user authentication. It allows users to
 - User Login
 - SQLite database for lightweight storage
 - Swagger UI for API documentation and testing
+Changed database address in ENV in vercel
